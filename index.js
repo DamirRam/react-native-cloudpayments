@@ -34,14 +34,6 @@ export default class RNCloudPayments {
       return createError(error);
     }
   }
-
-  static async show3DS(acsUrl, paReq, transactionId) {
-	try {
-		return await RNCloudPaymentsModule.show3DS(acsUrl, paReq, transactionId);
-	} catch(error) {
-		return createError(error);
-	}
-  }
 }
 
 class RNCloudPaymentsError extends Error {

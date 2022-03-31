@@ -6,8 +6,6 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import ru.cloudpayments.sdk.cp_card.CPCard;
-import ru.cloudpayments.sdk.three_ds.ThreeDsDialogFragment;
-
 
 public class CloudPayments extends ReactContextBaseJavaModule {
   public CloudPayments(ReactApplicationContext reactContext) {
@@ -69,24 +67,6 @@ public class CloudPayments extends ReactContextBaseJavaModule {
       promise.resolve(cryptoprogram);
     } catch (Exception e) {
       e.printStackTrace();
-      promise.reject(e.getMessage());
-    }
-  }
-
-  @ReactMethod
-  public void show3DS(String acsUrl, String paReq, String transactionId, Promise promise) {
-    try {
-      Intent intent = new Intent(getReactApplicationContext(), CheckoutActivity.class);
-
-      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-      CheckoutActivity.acsUrl = acsUrl;
-      CheckoutActivity.paReq = paReq;
-      CheckoutActivity.transactionId = transactionId;
-      CheckoutActivity.promise = promise;
-
-      getReactApplicationContext().startActivity(intent);
-    } catch (Exception e) {
       promise.reject(e.getMessage());
     }
   }
