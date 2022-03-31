@@ -7,11 +7,6 @@
 typedef void (^RCTPromiseResolveBlock)(id result);
 typedef void (^RCTPromiseRejectBlock)(NSString *code, NSString *message, NSError *error);
 
-@property (nonatomic) RCTPromiseResolveBlock resolveWebView;
-@property (nonatomic) RCTPromiseRejectBlock rejectWebView;
-
-@end
-
 @implementation RNCloudPayments
 
 RCT_EXPORT_MODULE();
